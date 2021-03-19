@@ -1,0 +1,25 @@
+name: dabao
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: go
+      uses: actions/checkout@main
+
+      - name: nodejs
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.0.0
+      - name: install
+      run: npm install
+
+      - name: build
+      run: npm build
+
+      - name : push
+      uses:
